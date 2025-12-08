@@ -1,1 +1,719 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Veres Antal E.V. – Szobafestés, Gipszkartonozás & Hőszigetelés</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Veres Antal E.V. – szobafestés, mázolás, glettelés, gipszkartonozás, tapétázás, homlokzati hőszigetelés EPS és kőzetgyapot rendszerrel. Mezőfalva és környéke.">
+    <style>
+        :root {
+            --primary: #1e88e5;
+            --primary-dark: #1565c0;
+            --bg: #f5f7fb;
+            --card-bg: #ffffff;
+            --text-main: #222;
+            --text-muted: #666;
+            --border: #dde2ee;
+            --radius: 12px;
+            --shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
 
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top, #e3f2fd 0, #f5f7fb 55%);
+            color: var(--text-main);
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        .page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px 40px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(245,247,251,0.9);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255,255,255,0.8);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+            gap: 10px;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: rgba(255,255,255,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            flex-shrink: 0;
+        }
+
+        .logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-text strong {
+            font-size: 16px;
+        }
+
+        .brand-text span {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 14px;
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            padding: 6px 10px;
+            border-radius: 999px;
+        }
+
+        .nav-links a:hover {
+            background: #e3f2fd;
+        }
+
+        @media (max-width: 750px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        .cta-phone {
+            font-size: 13px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            box-shadow: 0 6px 16px rgba(21,101,192,0.35);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 24px;
+            align-items: center;
+            padding: 26px 0 30px;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hero-text h1 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-dark);
+        }
+
+        .hero-text p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .hero-tags span {
+            font-size: 11px;
+            border-radius: 999px;
+            padding: 4px 8px;
+            border: 1px solid var(--border);
+            background: #fff;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .btn-primary {
+            padding: 10px 18px;
+            border-radius: 999px;
+            border: none;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            font-size: 14px;
+            letter-spacing: .03em;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 7px 20px rgba(21,101,192,0.4);
+        }
+
+        .btn-secondary {
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: #fff;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .hero-note {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .hero-gallery {
+            background: var(--card-bg);
+            border-radius: 22px;
+            padding: 14px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-gallery h3 {
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .hero-photos {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 6px;
+            height: 220px;
+        }
+
+        .hero-photos div {
+            border-radius: 12px;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-photos .big {
+            grid-row: span 2;
+        }
+
+        .hero-photos .big {
+            background-image: url("kepek/minta1.jpg");
+        }
+        .hero-photos .small1 {
+            background-image: url("kepek/minta2.jpg");
+        }
+        .hero-photos .small2 {
+            background-image: url("kepek/minta3.jpg");
+        }
+
+        section {
+            margin-bottom: 28px;
+        }
+
+        .section-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 18px 18px 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255,255,255,0.7);
+        }
+
+        h2.section-title {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .section-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+        }
+
+        .service-item {
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: #f9fafc;
+            font-size: 13px;
+        }
+
+        .service-item strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <header>
+        <nav class="nav">
+            <div class="nav-left">
+                <div class="logo">
+                    <!-- IDE JÖN A LOGÓD: logo.png -->
+                    <img src="logo.png" alt="Veres Antal logó">
+                </div>
+                <div class="brand-text">
+                    <strong>Veres Antal E.V.</strong>
+                    <span>Szobafestés • Gipszkarton • Hőszigetelés</span>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="#fooldal">Főoldal</a>
+                <a href="#szolgaltatasok">Szolgáltatások</a>
+                <a href="#arlista">Árlista</a>
+                <a href="#kalkulator">Árkalkulátor</a>
+                <a href="#kapcsolat">Kapcsolat</a>
+            </div>
+            <a href="#kapcsolat" class="cta-phone">Ajánlatkérés</a>
+        </nav>
+    </header>
+
+    <main id="fooldal">
+        <section class="hero">
+            <div class="hero-text">
+                <h1><span>Festés, gipszkartonozás & hőszigetelés</span> Mezőfalván és környékén</h1>
+                <p>Megbízható, tiszta munkavégzés szobafestésben, gipszkartonozásban, mázolásban és homlokzati hőszigetelésben. Magánszemélyeknek és cégeknek is.</p>
+
+                <div class="hero-tags">
+                    <span>Szobafestés</span>
+                    <span>Glettelés</span>
+                    <span>Tapétázás</span>
+                    <span>Gipszkarton mennyezet</span>
+                    <span>Válaszfal gipszkarton</span>
+                    <span>EPS & kőzetgyapot hőszigetelés</span>
+                </div>
+
+                <div class="hero-cta">
+                    <a href="#kalkulator"><button class="btn-primary">Online árkalkulátor</button></a>
+                    <a href="#kapcsolat"><button class="btn-secondary">Ingyenes ajánlatkérés</button></a>
+                </div>
+
+                <div class="hero-note">
+                    Az árkalkulátor tájékoztató jellegű. Pontos árat helyszíni felmérés után adok.
+                </div>
+            </div>
+
+            <div class="hero-gallery">
+                <h3>Munkáimból</h3>
+                <div class="hero-photos">
+                    <div class="big"></div>
+                    <div class="small1"></div>
+                    <div class="small2"></div>
+                </div>
+            </div>
+        </section>
+      <!-- SZOLGÁLTATÁSOK -->
+        <section id="szolgaltatasok">
+            <div class="section-card">
+                <h2 class="section-title">Szolgáltatások</h2>
+                <div class="section-sub">Belső és külső munkák teljes körűen, előkészítéstől a kész felületig.</div>
+
+                <div class="services-grid">
+                    <div class="service-item">
+                        <strong>Belső szobafestés</strong>
+                        <p>Festés 1–2 rétegben, tisztasági festés, javítások, színre festés. Tiszta, letakarásos munkavégzés lakásokban, házakban, irodákban.</p>
+                    </div>
+
+                    <div class="service-item">
+                        <strong>Előkészítés</strong>
+                        <p>Mélyalapozás, csiszolás, glettelés 1–3 rétegben, repedések javítása, falkaparás régi festékréteg eltávolításával.</p>
+                    </div>
+
+                    <div class="service-item">
+                        <strong>Tapétázás & mázolás</strong>
+                        <p>Könnyű tapéta, vlies tapéta felrakása, ajtók-ablakok mázolása, csőmázolás, korlátok és egyéb fa/fém felületek felújítása.</p>
+                    </div>
+
+                    <div class="service-item">
+                        <strong>Gipszkartonozás</strong>
+                        <p>Mennyezet gipszkartonozás, válaszfalak 1–2 réteg kartonnal, szigeteléssel. Dobozolás, álmennyezet, szerelés.</p>
+                    </div>
+
+                    <div class="service-item">
+                        <strong>Homlokzati hőszigetelés</strong>
+                        <p>EPS és kőzetgyapot rendszer teljes kivitelezéssel, hálózással, alapozással és nemesvakolattal.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ÁRLISTA -->
+        <section id="arlista">
+            <div class="section-card">
+                <h2 class="section-title">Árlista</h2>
+                <div class="section-sub">Az alábbi árak tájékoztató jellegűek, normál állapotú felületre vonatkoznak.</div>
+
+                <table class="price-table">
+                    <thead>
+                    <tr>
+                        <th>Munka</th>
+                        <th>Egység</th>
+                        <th>Egységár</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr><td>Festés 1 rétegben</td><td>m²</td><td>750 Ft</td></tr>
+                        <tr><td>Festés 2 rétegben</td><td>m²</td><td>1500 Ft</td></tr>
+                        <tr><td>Tisztasági festés</td><td>m²</td><td>900 Ft</td></tr>
+                        <tr><td>Mélyalapozás</td><td>m²</td><td>450 Ft</td></tr>
+                        <tr><td>Csiszolás</td><td>m²</td><td>500 Ft</td></tr>
+
+                        <tr><td>Glettelés 1 rétegben</td><td>m²</td><td>900 Ft</td></tr>
+                        <tr><td>Glettelés 2 rétegben</td><td>m²</td><td>1800 Ft</td></tr>
+                        <tr><td>Glettelés 3 rétegben</td><td>m²</td><td>2500 Ft</td></tr>
+
+                        <tr><td>Falkaparás</td><td>m²</td><td>800 Ft</td></tr>
+
+                        <tr><td>Tapétázás – könnyű tapéta</td><td>m²</td><td>1800 Ft</td></tr>
+                        <tr><td>Vlies tapétázás</td><td>m²</td><td>4500 Ft</td></tr>
+
+                        <tr><td>Cső mázolás</td><td>fm</td><td>500 Ft</td></tr>
+                        <tr><td>Mázolás</td><td>m²</td><td>4500 Ft</td></tr>
+
+                        <!-- Gipszkarton -->
+                        <tr><td>Mennyezet gipszkartonozás</td><td>m²</td><td>4500 Ft</td></tr>
+                        <tr><td>Fal gipszkarton 1 réteg kartonnal</td><td>m²</td><td>3000 Ft</td></tr>
+                        <tr><td>Fal gipszkarton 2 réteg kartonnal</td><td>m²</td><td>4000 Ft</td></tr>
+                        <tr><td>Szigetelés gipszkarton falba</td><td>m²</td><td>2700 Ft</td></tr>
+
+                        <!-- Hőszigetelés -->
+                        <tr><td>Hőszigetelés EPS rendszerrel</td><td>m²</td><td>12500 Ft</td></tr>
+                        <tr><td>Hőszigetelés kőzetgyapottal</td><td>m²</td><td>15000 Ft</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+      <!-- ÁRKALKULÁTOR -->
+        <section id="kalkulator">
+            <div class="section-card">
+                <h2 class="section-title">Árkalkulátor</h2>
+                <div class="section-sub">
+                    Válaszd ki a munkákat, add meg a felületeket (m² / fm) – kiszámolom a várható árat.
+                </div>
+
+                <div class="calc-grid">
+                    <div>
+                        <table class="calc-table">
+                            <thead>
+                                <tr>
+                                    <th class="checkbox-center">√</th>
+                                    <th>Munka</th>
+                                    <th>Egységár</th>
+                                    <th>Mennyiség</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Festés, előkészítés -->
+                                <tr>
+                                    <td class="checkbox-center"><input type="checkbox" id="festes1_chk"></td>
+                                    <td>Festés 1 rétegben (m²)</td>
+                                    <td>750 Ft</td>
+                                    <td><input type="number" id="festes1_qty" min="0" placeholder="m²"></td>
+                                </tr>
+                                <tr>
+                                    <td class="checkbox-center"><input type="checkbox" id="festes2_chk"></td>
+                                    <td>Festés 2 rétegben (m²)</td>
+                                    <td>1500 Ft</td>
+                                    <td><input type="number" id="festes2_qty" min="0" placeholder="m²"></td>
+                                </tr>
+                                <tr>
+                                    <td class="checkbox-center"><input type="checkbox" id="tisztasagi_chk"></td>
+                                    <td>Tisztasági festés (m²)</td>
+                                    <td>900 Ft</td>
+                                    <td><input type="number" id="tisztasagi_qty" min="0" placeholder="m²"></td>
+                                </tr>
+                                <tr>
+                                    <td class="checkbox-center"><input type="checkbox" id="melyalapozas_chk"></td>
+                                    <td>Mélyalapozás (m²)</td>
+                                    <td>450 Ft</td>
+                                    <td><input type="number" id="melyalapozas_qty" min="0" placeholder="m²"></td>
+                                </tr>
+                                <tr>
+                                    <td class="checkbox-center"><input type="checkbox" id="csiszolas_chk"></td>
+                                    <td>Csiszolás (m²)</td>
+                                    <td>500 Ft</td>
+                                    <td><input type="number" id="csiszolas_qty" min="0" placeholder="m²"></td>
+                                </tr>
+                                <tr>
+                                    <td class="checkbox-center"><input type="checkbox" id="glett1_chk"></td>
+                                    <td>Glettelés 1 rétegben (m²)</td>
+                                    <td>900 Ft</td>
+                                    <td><input type="number" id="glett1_qty" min="0" placeholder="m²"></td>
+                                </tr>
+                                <tr>
+                                    <td class="checkbox-center"><input type="checkbox" id="glett2_chk"></td>
+                                    <td>Glettelés 2 rétegben (m²)</td>
+                                    <td>1800 Ft</td>
+                                    <td><input type="number" id="glett2_qty" min="0" placeholder="m²"></td>
+                                </tr>
+                                <tr>
+                                    <td class="checkbox-center"><input type="checkbox" id="glett3_chk"></td>
+                                    <td>Glettelés 3 rétegben (m²)</td>
+                                    <td>2500 Ft</td>
+                                    <td><input type="number" id="glett3_qty" min="0" placeholder="m²"></td>
+                                </tr>
+                                <tr>
+                                    <td class="checkbox-center"><input type="checkbox" id="falkaparas_chk"></td>
+                                    <td>Falkaparás (m²)</td>
+                                    <td>800 Ft</td>
+                                    <td><input type="number" id="falkaparas_qty" min="0" placeholder="m²"></td>
+                                </tr>
+
+                                <!-- Tapéta, mázolás -->
+                                <tr>
+                                    <td class="checkbox-center"><input type="checkbox" id="tapeta_konnyu_chk"></td>
+                                    <td>Tapétázás – könnyű tapéta (m²)</td>
+                                    <td>1800 Ft</td>
+                                    <td><input type="number" id="tapeta_konnyu_qty" min="0" placeholder="m²"></td>
+                                </tr>
+                                <tr>
+                                    <td class="checkbox-center"><input type="checkbox" id="vlyes_chk"></td>
+                                    <td>Vlies tapétázás (m²)</td>
+                                    <td>4500 Ft</td>
+                                    <td><input type="number" id="vlyes_qty" min="0" placeholder="m²"></td>
+                                </tr>
+                                <tr>
+                                    <td class="checkbox-center"><input type="checkbox" id="csomazolas_chk"></td>
+                                    <td>Cső mázolás (fm)</td>
+                                    <td>500 Ft</td>
+                                    <td><input type="number" id="csomazolas_qty" min="0" placeholder="fm"></td>
+                                </tr>
+                                <tr>
+                                    <td class="checkbox-center"><input type="checkbox" id="mazolas_chk"></td>
+                                    <td>Mázolás (m²)</td>
+                                    <td>4500 Ft</td>
+                                    <td><input type="number" id="mazolas_qty" min="0" placeholder="m²"></td>
+                                </tr>
+
+                                <!-- Gipszkarton tételek -->
+                                <tr>
+                                    <td class="checkbox-center"><input type="checkbox" id="gk_mennyezet_chk"></td>
+                                    <td>Mennyezet gipszkartonozás (m²)</td>
+                                    <td>4500 Ft</td>
+                                    <td><input type="number" id="gk_mennyezet_qty" min="0" placeholder="m²"></td>
+                                </tr>
+                                <tr>
+                                    <td class="checkbox-center"><input type="checkbox" id="gk_fal1_chk"></td>
+                                    <td>Fal gipszkarton 1 réteg kartonnal (m²)</td>
+                                    <td>3000 Ft</td>
+                                    <td><input type="number" id="gk_fal1_qty" min="0" placeholder="m²"></td>
+                                </tr>
+                                <tr>
+                                    <td class="checkbox-center"><input type="checkbox" id="gk_fal2_chk"></td>
+                                    <td>Fal gipszkarton 2 réteg kartonnal (m²)</td>
+                                    <td>4000 Ft</td>
+                                    <td><input type="number" id="gk_fal2_qty" min="0" placeholder="m²"></td>
+                                </tr>
+                                <tr>
+                                    <td class="checkbox-center"><input type="checkbox" id="gk_szigeteles_chk"></td>
+                                    <td>Szigetelés gipszkarton falban (m²)</td>
+                                    <td>2700 Ft</td>
+                                    <td><input type="number" id="gk_szigeteles_qty" min="0" placeholder="m²"></td>
+                                </tr>
+
+                                <!-- Homlokzati hőszigetelés -->
+                                <tr>
+                                    <td class="checkbox-center"><input type="checkbox" id="eps_chk"></td>
+                                    <td>Hőszigetelés EPS rendszerrel (m²)</td>
+                                    <td>12500 Ft</td>
+                                    <td><input type="number" id="eps_qty" min="0" placeholder="m²"></td>
+                                </tr>
+                                <tr>
+                                    <td class="checkbox-center"><input type="checkbox" id="kozetgyapot_chk"></td>
+                                    <td>Hőszigetelés kőzetgyapottal (m²)</td>
+                                    <td>15000 Ft</td>
+                                    <td><input type="number" id="kozetgyapot_qty" min="0" placeholder="m²"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="calc-info">
+                            Pipáld be a munkát, írd be a m² / fm értéket, majd kattints a kalkuláció gombra.
+                        </div>
+                        <button class="calculate-btn" onclick="calculate()">Kalkuláció</button>
+                        <div class="warning" id="warning"></div>
+                    </div>
+
+                    <div>
+                        <div class="result-main" id="totalText">
+                            Add meg az adatokat és számolok.
+                        </div>
+                        <div class="result-box" id="breakdown">
+                            Itt fog megjelenni a részletes bontás a munkatípusok szerint.
+                        </div>
+                        <div class="calc-info">
+                            Az árak tájékoztató jellegűek, nem minősülnek ajánlattételnek.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+      <!-- KAPCSOLAT -->
+        <section id="kapcsolat">
+            <div class="section-card">
+                <h2 class="section-title">Kapcsolat</h2>
+                <div class="section-sub">
+                    Kérj személyre szabott ajánlatot – röviden írd le, mit szeretnél festetni, gipszkartonozni vagy szigeteltetni.
+                </div>
+
+                <div class="contact-grid">
+                    <div>
+                        <div class="contact-item">
+                            <strong>Veres Antal E.V.</strong><br>
+                            <span>Szobafestő, gipszkartonozó, hőszigetelő</span>
+                        </div>
+
+                        <div class="contact-item">
+                            Telefon: <strong>+36 …</strong><br>
+                            <span>(Ide írd majd be a saját számodat.)</span>
+                        </div>
+
+                        <div class="contact-item">
+                            E-mail: <strong>info@veresantal.hu</strong><br>
+                            <span>(Vagy a saját e-mail címed.)</span>
+                        </div>
+
+                        <div class="contact-item">
+                            Terület: <strong>Mezőfalva és környéke</strong>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="contact-item">
+                            Ha kéred, ide be tudok tenni Google térképet vagy kapcsolatfelvételi űrlapot.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        © <span id="year"></span> Veres Antal E.V. – Szobafestés, gipszkartonozás & hőszigetelés
+    </footer>
+</div>
+
+<script>
+    // Aktuális év a láblécben
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Kalkulátor árai
+    const prices = {
+        festes1: 750,
+        festes2: 1500,
+        tisztasagi: 900,
+        melyalapozas: 450,
+        csiszolas: 500,
+        glett1: 900,
+        glett2: 1800,
+        glett3: 2500,
+        falkaparas: 800,
+        tapeta_konnyu: 1800,
+        vlyes: 4500,
+        csomazolas: 500,
+        mazolas: 4500,
+        gk_mennyezet: 4500,
+        gk_fal1: 3000,
+        gk_fal2: 4000,
+        gk_szigeteles: 2700,
+        eps: 12500,
+        kozetgyapot: 15000
+    };
+
+    function calculate() {
+        let total = 0;
+        let breakdownText = "";
+        let warning = document.getElementById("warning");
+        warning.textContent = "";
+
+        function addWork(id, label) {
+            const chk = document.getElementById(id + "_chk");
+            const qty = document.getElementById(id + "_qty");
+
+            if (chk.checked) {
+                let menny = Number(qty.value);
+                if (menny <= 0) {
+                    warning.textContent = "Van kijelölt tétel, amihez nem adtál meg mennyiséget!";
+                }
+
+                let subtotal = prices[id] * menny;
+                total += subtotal;
+
+                breakdownText += `
+                    <div class="result-line">
+                        <div class="result-label">${label} (${menny} m²/fm)</div>
+                        <div class="result-value">${subtotal.toLocaleString()} Ft</div>
+                    </div>`;
+            }
+        }
+
+        addWork("festes1", "Festés 1 rétegben");
+        addWork("festes2", "Festés 2 rétegben");
+        addWork("tisztasagi", "Tisztasági festés");
+        addWork("melyalapozas", "Mélyalapozás");
+        addWork("csiszolas", "Csiszolás");
+        addWork("glett1", "Glettelés 1 rétegben");
+        addWork("glett2", "Glettelés 2 rétegben");
+        addWork("glett3", "Glettelés 3 rétegben");
+        addWork("falkaparas", "Falkaparás");
+        addWork("tapeta_konnyu", "Könnyű tapéta");
+        addWork("vlyes", "Vlies tapéta");
+        addWork("csomazolas", "Cső mázolás (fm)");
+        addWork("mazolas", "Mázolás");
+        addWork("gk_mennyezet", "Mennyezet gipszkarton");
+        addWork("gk_fal1", "Fal gipszkarton 1 réteg");
+        addWork("gk_fal2", "Fal gipszkarton 2 réteg");
+        addWork("gk_szigeteles", "Gipszkarton szigetelés");
+        addWork("eps", "EPS hőszigetelés");
+        addWork("kozetgyapot", "Kőzetgyapot hőszigetelés");
+
+        document.getElementById("breakdown").innerHTML = breakdownText;
+        document.getElementById("totalText").innerHTML = `
+            Összesen: <span>${total.toLocaleString()} Ft</span>
+        `;
+    }
+</script>
+
+</body>
+</html>
